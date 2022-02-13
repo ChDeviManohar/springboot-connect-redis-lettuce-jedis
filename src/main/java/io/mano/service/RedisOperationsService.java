@@ -27,13 +27,11 @@ public class RedisOperationsService {
 	@Autowired
 	private StringRedisTemplate redisTemplate;
 	
-	
 	public void performRedisOperations() {
 		redisStringOps();
 		redisSetOps();
 		redisListOps();
 		redisHashOps();
-		redisMultiOps();
 		redisSetGetMultiOps();
 	}
 	
@@ -111,7 +109,7 @@ public class RedisOperationsService {
 		LOGGER.info("-----Hash Operations::End");
 	}
 	
-	private void redisMultiOps() {
+	private void redisSetGetMultiOps() {
 		LOGGER.info("-----Multi Operations::Start");
 		List<Object> txResults = new ArrayList<>();
 		
@@ -144,18 +142,7 @@ public class RedisOperationsService {
 			LOGGER.info("Set values: {}",  txResults.get(3));
 			LOGGER.info("List values: {}",  txResults.get(6));
 		}
-		
 		LOGGER.info("-----Multi Operations::End");
 	}
 	
-	private void redisSetGetMultiOps() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-
-	
-
-
 }
